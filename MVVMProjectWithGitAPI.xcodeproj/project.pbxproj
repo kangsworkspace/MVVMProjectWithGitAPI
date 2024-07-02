@@ -20,6 +20,18 @@
 		3B53E0F42C33AAA700AD46E5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B53E0F32C33AAA700AD46E5 /* MainViewController.swift */; };
 		3B53E0F92C33AAA800AD46E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B53E0F82C33AAA800AD46E5 /* Assets.xcassets */; };
 		3B53E0FC2C33AAA800AD46E5 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3B53E0FB2C33AAA800AD46E5 /* Base */; };
+		3B59B4262C33FBD100677C96 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B4252C33FBD100677C96 /* UserInfo.swift */; };
+		3B59B4292C33FBFE00677C96 /* UserInfoSearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B4282C33FBFE00677C96 /* UserInfoSearchType.swift */; };
+		3B59B42C2C33FC4700677C96 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B42B2C33FC4700677C96 /* Network.swift */; };
+		3B59B42E2C33FC6E00677C96 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B42D2C33FC6E00677C96 /* NetworkProvider.swift */; };
+		3B59B4302C33FC7A00677C96 /* Network+BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B42F2C33FC7A00677C96 /* Network+BaseURL.swift */; };
+		3B59B4322C33FC8700677C96 /* Network+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B4312C33FC8700677C96 /* Network+Method.swift */; };
+		3B59B4342C33FC9000677C96 /* Network+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B4332C33FC9000677C96 /* Network+Path.swift */; };
+		3B59B4362C33FC9900677C96 /* Network+Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B4352C33FC9900677C96 /* Network+Task.swift */; };
+		3B59B4382C33FF1E00677C96 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B4372C33FF1E00677C96 /* Extensions.swift */; };
+		3B59B43A2C34010600677C96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B4392C34010600677C96 /* Constants.swift */; };
+		3B59B43C2C3401D000677C96 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B43B2C3401D000677C96 /* MainViewModel.swift */; };
+		3B832DAC2C344AE20052DC77 /* Network+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B832DAB2C344AE20052DC77 /* Network+Header.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +43,18 @@
 		3B53E0F82C33AAA800AD46E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B53E0FB2C33AAA800AD46E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B53E0FD2C33AAA800AD46E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B59B4252C33FBD100677C96 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		3B59B4282C33FBFE00677C96 /* UserInfoSearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoSearchType.swift; sourceTree = "<group>"; };
+		3B59B42B2C33FC4700677C96 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		3B59B42D2C33FC6E00677C96 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		3B59B42F2C33FC7A00677C96 /* Network+BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+BaseURL.swift"; sourceTree = "<group>"; };
+		3B59B4312C33FC8700677C96 /* Network+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Method.swift"; sourceTree = "<group>"; };
+		3B59B4332C33FC9000677C96 /* Network+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Path.swift"; sourceTree = "<group>"; };
+		3B59B4352C33FC9900677C96 /* Network+Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Task.swift"; sourceTree = "<group>"; };
+		3B59B4372C33FF1E00677C96 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3B59B4392C34010600677C96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3B59B43B2C3401D000677C96 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		3B832DAB2C344AE20052DC77 /* Network+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Header.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +117,7 @@
 		3B53E1042C33AB7D00AD46E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3B53E1082C33ABD700AD46E5 /* Main */,
+				3B59B43D2C3401DF00677C96 /* Main */,
 				3B53E1092C33ABE500AD46E5 /* LaunchScreen */,
 			);
 			path = Views;
@@ -102,6 +126,7 @@
 		3B53E1052C33AB8000AD46E5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				3B59B43B2C3401D000677C96 /* MainViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -109,6 +134,8 @@
 		3B53E1062C33AB8200AD46E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3B59B4242C33FBC500677C96 /* Entities */,
+				3B59B42A2C33FC2E00677C96 /* Network */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -116,18 +143,12 @@
 		3B53E1072C33AB8500AD46E5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3B59B4392C34010600677C96 /* Constants.swift */,
+				3B59B4372C33FF1E00677C96 /* Extensions.swift */,
 				3B0C7A6B2C33AC5000253D09 /* Secrets.xcconfig */,
 				3B53E0F82C33AAA800AD46E5 /* Assets.xcassets */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		3B53E1082C33ABD700AD46E5 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				3B53E0F32C33AAA700AD46E5 /* MainViewController.swift */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		3B53E1092C33ABE500AD46E5 /* LaunchScreen */ = {
@@ -136,6 +157,37 @@
 				3B53E0FA2C33AAA800AD46E5 /* LaunchScreen.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		3B59B4242C33FBC500677C96 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3B59B4252C33FBD100677C96 /* UserInfo.swift */,
+				3B59B4282C33FBFE00677C96 /* UserInfoSearchType.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		3B59B42A2C33FC2E00677C96 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3B59B42B2C33FC4700677C96 /* Network.swift */,
+				3B59B42D2C33FC6E00677C96 /* NetworkProvider.swift */,
+				3B59B42F2C33FC7A00677C96 /* Network+BaseURL.swift */,
+				3B59B4332C33FC9000677C96 /* Network+Path.swift */,
+				3B59B4312C33FC8700677C96 /* Network+Method.swift */,
+				3B59B4352C33FC9900677C96 /* Network+Task.swift */,
+				3B832DAB2C344AE20052DC77 /* Network+Header.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3B59B43D2C3401DF00677C96 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3B53E0F32C33AAA700AD46E5 /* MainViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,9 +277,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B832DAC2C344AE20052DC77 /* Network+Header.swift in Sources */,
+				3B59B42E2C33FC6E00677C96 /* NetworkProvider.swift in Sources */,
+				3B59B4322C33FC8700677C96 /* Network+Method.swift in Sources */,
+				3B59B4262C33FBD100677C96 /* UserInfo.swift in Sources */,
+				3B59B4292C33FBFE00677C96 /* UserInfoSearchType.swift in Sources */,
+				3B59B4302C33FC7A00677C96 /* Network+BaseURL.swift in Sources */,
+				3B59B42C2C33FC4700677C96 /* Network.swift in Sources */,
 				3B53E0F42C33AAA700AD46E5 /* MainViewController.swift in Sources */,
+				3B59B43C2C3401D000677C96 /* MainViewModel.swift in Sources */,
+				3B59B43A2C34010600677C96 /* Constants.swift in Sources */,
+				3B59B4382C33FF1E00677C96 /* Extensions.swift in Sources */,
 				3B53E0F02C33AAA700AD46E5 /* AppDelegate.swift in Sources */,
 				3B53E0F22C33AAA700AD46E5 /* SceneDelegate.swift in Sources */,
+				3B59B4362C33FC9900677C96 /* Network+Task.swift in Sources */,
+				3B59B4342C33FC9000677C96 /* Network+Path.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

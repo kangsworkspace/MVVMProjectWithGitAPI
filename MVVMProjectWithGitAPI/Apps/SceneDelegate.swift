@@ -49,6 +49,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            // 임시 코드값 구하기
+            let code = url.absoluteString.components(separatedBy: "code=").last ?? ""
+            NetworkProvider.shared.fetchAccessToken(tempCode: code)
+        }
+    }
 }
 
