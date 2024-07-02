@@ -14,6 +14,12 @@ extension Network {
             return nil
         case .getToken:
             return ["Accept": "application/json"]
+        case let .gitUserInfo(accessToken,_,_):
+            return [
+                "Accept": "application/vnd.github+json",
+                "Authorization": "Bearer \(accessToken)",
+                "X-GitHub-Api-Version": "2022-11-28"
+            ]
         }
     }
 }

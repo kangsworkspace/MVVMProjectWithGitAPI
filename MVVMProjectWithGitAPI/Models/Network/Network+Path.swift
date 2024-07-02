@@ -14,6 +14,8 @@ extension Network {
         return "/login/oauth/authorize"
     case .getToken:
         return"/login/oauth/access_token"
+    case .gitUserInfo:
+        return "/search/users"
     }
   }
 }

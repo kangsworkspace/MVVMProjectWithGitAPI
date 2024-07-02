@@ -16,6 +16,8 @@ extension Network {
             return .get
         case .getToken:
             return .post
+        case .gitUserInfo:
+            return .get
         }
     }
 }

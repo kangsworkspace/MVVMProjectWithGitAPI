@@ -46,6 +46,10 @@ extension Network {
             ]
             
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+            
+        case let .gitUserInfo(_, userID, page):
+            let parameters: [String: Any] = ["q": "\(userID) in:login", "page": page ?? 1, "per_page": 30]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }
 }

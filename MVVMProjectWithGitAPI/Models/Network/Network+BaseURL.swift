@@ -14,6 +14,8 @@ extension Network {
             return URL(string: "https://github.com")!
         case .getToken:
             return URL(string: "https://github.com")!
+        case .gitUserInfo:
+            return URL(string: "https://api.github.com")!
         }
     }
 }

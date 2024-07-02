@@ -19,7 +19,7 @@ enum Network {
     /// Rest API로 유저의 정보를  가져오는 경우
     /// - Parameter userID:(Int) : 검색할 유저의 아이디
     /// - Parameter page:(Int) : 페이징 처리를 위한 페이지 값
-    // case gitUserInfo(userID: String, page: Int)
+    case gitUserInfo(accessToken: String, userID: String, page: Int?)
 }
 
 extension Network: TargetType {
