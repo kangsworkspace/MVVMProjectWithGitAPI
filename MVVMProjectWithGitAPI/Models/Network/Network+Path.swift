@@ -12,6 +12,8 @@ extension Network {
     switch self {
     case .login:
         return "/login/oauth/authorize"
+    case .getToken:
+        return"/login/oauth/access_token"
     }
   }
 }

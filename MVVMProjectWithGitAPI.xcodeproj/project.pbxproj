@@ -31,6 +31,7 @@
 		3B59B4382C33FF1E00677C96 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B4372C33FF1E00677C96 /* Extensions.swift */; };
 		3B59B43A2C34010600677C96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B4392C34010600677C96 /* Constants.swift */; };
 		3B59B43C2C3401D000677C96 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B43B2C3401D000677C96 /* MainViewModel.swift */; };
+		3B832DAC2C344AE20052DC77 /* Network+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B832DAB2C344AE20052DC77 /* Network+Header.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		3B59B4372C33FF1E00677C96 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3B59B4392C34010600677C96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3B59B43B2C3401D000677C96 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		3B832DAB2C344AE20052DC77 /* Network+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Header.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,9 +174,10 @@
 				3B59B42B2C33FC4700677C96 /* Network.swift */,
 				3B59B42D2C33FC6E00677C96 /* NetworkProvider.swift */,
 				3B59B42F2C33FC7A00677C96 /* Network+BaseURL.swift */,
-				3B59B4312C33FC8700677C96 /* Network+Method.swift */,
 				3B59B4332C33FC9000677C96 /* Network+Path.swift */,
+				3B59B4312C33FC8700677C96 /* Network+Method.swift */,
 				3B59B4352C33FC9900677C96 /* Network+Task.swift */,
+				3B832DAB2C344AE20052DC77 /* Network+Header.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B832DAC2C344AE20052DC77 /* Network+Header.swift in Sources */,
 				3B59B42E2C33FC6E00677C96 /* NetworkProvider.swift in Sources */,
 				3B59B4322C33FC8700677C96 /* Network+Method.swift in Sources */,
 				3B59B4262C33FBD100677C96 /* UserInfo.swift in Sources */,

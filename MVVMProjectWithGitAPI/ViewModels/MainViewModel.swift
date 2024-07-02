@@ -10,7 +10,5 @@ import Foundation
 final class MainViewModel {
     private let networkProvider = NetworkProvider.shared
     
-    func login() {
-        networkProvider.login()
-    }
+
 }

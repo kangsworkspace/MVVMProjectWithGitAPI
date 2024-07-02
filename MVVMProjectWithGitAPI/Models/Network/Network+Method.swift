@@ -14,6 +14,8 @@ extension Network {
         switch self {
         case .login:
             return .get
+        case .getToken:
+            return .post
         }
     }
 }

@@ -22,9 +22,16 @@ struct UserInfo: Codable {
     let avatarURL: String
     let url: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case login
         case avatarURL = "avatar_url"
         case url = "html_url"
+    }
+    
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.login = try container.decode(String.self, forKey: .login)
+        self.avatarURL = try container.decode(String.self, forKey: .avatarURL)
+        self.url = try container.decode(String.self, forKey: .url)
     }
 }

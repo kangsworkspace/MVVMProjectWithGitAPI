@@ -1,5 +1,5 @@
 //
-//  Network+BaseURL.swift
+//  Network+Header.swift
 //  MVVMProjectWithGitAPI
 //
 //  Created by Healthy on 7/2/24.
@@ -8,12 +8,12 @@
 import Foundation
 
 extension Network {
-    func getBaseURL() -> URL {
+    func getHeader() -> [String : String]? {
         switch self {
         case .login:
-            return URL(string: "https://github.com")!
+            return nil
         case .getToken:
-            return URL(string: "https://github.com")!
+            return ["Accept": "application/json"]
         }
     }
 }

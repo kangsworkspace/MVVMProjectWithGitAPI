@@ -53,11 +53,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let url = URLContexts.first?.url {
             // 임시 코드값 구하기
             let code = url.absoluteString.components(separatedBy: "code=").last ?? ""
-            // tempCode값 할당
-            print("tempCode: \(code)")
-            
-            Constants.tempCode = code
-            // GitAPIModel.shared.fetchAccessToken()
+            NetworkProvider.shared.fetchAccessToken(tempCode: code)
         }
     }
 }

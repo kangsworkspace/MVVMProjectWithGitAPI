@@ -13,8 +13,8 @@ enum Network {
     /// 깃 로그인
     case login
     
-    /// RestAPI를 사용하기 위해 Git 토큰 가져오기
-    // case getToken
+    // RestAPI를 사용하기 위해 Git 토큰 가져오기
+    case getToken(tempCode: String)
     
     /// Rest API로 유저의 정보를  가져오는 경우
     /// - Parameter userID:(Int) : 검색할 유저의 아이디
@@ -27,5 +27,5 @@ extension Network: TargetType {
     var path: String { self.getPath() }
     var method: Moya.Method { self.getMethod() }
     var task: Task { self.getTask() }
-    var headers: [String : String]? { return nil }
+    var headers: [String : String]? { self.getHeader() }
 }

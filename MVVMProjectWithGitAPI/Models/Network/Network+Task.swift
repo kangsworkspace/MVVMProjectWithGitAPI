@@ -27,6 +27,25 @@ extension Network {
             ]
             
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+            
+        case .getToken(let tempCode):
+            guard let clientID = Bundle.main.cliendID else {
+                print("cliendID를 로드하지 못했습니다.")
+                return .requestPlain
+            }
+            
+            guard let clientSecrets = Bundle.main.clientSecrets else {
+                print("cliendID를 로드하지 못했습니다.")
+                return .requestPlain
+            }
+
+            let parameters: [String: Any] = [
+                "client_id": clientID,
+                "client_secret": clientSecrets,
+                "code": tempCode
+            ]
+            
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }
 }
