@@ -20,7 +20,7 @@ final class MainViewController: UIViewController {
     // MARK: - Layouts
     private lazy var searchView = SearchView().then {
         $0.textField.delegate = self
-//        $0.clearButton.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
+        $0.clearButton.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
 //        $0.searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
     }
     
@@ -63,24 +63,9 @@ final class MainViewController: UIViewController {
                 print(keyword)
                 self?.setClearButton(keyword: keyword)
             }).disposed(by: disposeBag)
-        
-//        buttonView.tvButton.rx.tap.bind { [weak self] in
-//            self?.textField.isHidden = false
-//            self?.tvTrigger.onNext(1)
-//        }.disposed(by: disposeBag)
-        
     }
-    
-    
-//    // clearButton 히든 처리 로직
-//    @objc func textFieldDidChange() {
-//        if searchView.textField.text == "" {
-//            searchView.clearButton.isHidden = true
-//        } else {
-//            searchView.clearButton.isHidden = false
-//        }
-//    }
-    
+
+    /// clearButton 동작 로직(텍스트 변화 시)
     private func setClearButton(keyword: String) {
         if keyword.isEmpty {
             searchView.clearButton.isHidden = true
@@ -88,9 +73,15 @@ final class MainViewController: UIViewController {
             searchView.clearButton.isHidden = false
         }
     }
+    
+    /// clearButton 동작 로직(버튼이 눌렸을 때)
+    @objc private func clearButtonTapped() {
+        searchView.textField.text = ""
+        searchView.clearButton.isHidden = true
+    }
 }
 
-// UITextField의 델리게이트 설정을 위한 extension
+/// UITextField의 델리게이트 설정을 위한 extension
 extension MainViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.text != "" {
