@@ -15,6 +15,7 @@
 		3B0C7A7A2C33AD6B00253D09 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3B0C7A792C33AD6B00253D09 /* SnapKit */; };
 		3B0C7A7D2C33AD7700253D09 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3B0C7A7C2C33AD7700253D09 /* Kingfisher */; };
 		3B0C7A802C33AD8B00253D09 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 3B0C7A7F2C33AD8B00253D09 /* Then */; };
+		3B1BEDD92C358FCA002E2883 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1BEDD82C358FCA002E2883 /* Protocols.swift */; };
 		3B53E0F02C33AAA700AD46E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B53E0EF2C33AAA700AD46E5 /* AppDelegate.swift */; };
 		3B53E0F22C33AAA700AD46E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B53E0F12C33AAA700AD46E5 /* SceneDelegate.swift */; };
 		3B53E0F42C33AAA700AD46E5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B53E0F32C33AAA700AD46E5 /* MainViewController.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		3B0C7A6B2C33AC5000253D09 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		3B1BEDD82C358FCA002E2883 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		3B53E0EC2C33AAA700AD46E5 /* MVVMProjectWithGitAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMProjectWithGitAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B53E0EF2C33AAA700AD46E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B53E0F12C33AAA700AD46E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				3B59B4392C34010600677C96 /* Constants.swift */,
 				3B59B4372C33FF1E00677C96 /* Extensions.swift */,
+				3B1BEDD82C358FCA002E2883 /* Protocols.swift */,
 				3B0C7A6B2C33AC5000253D09 /* Secrets.xcconfig */,
 				3B53E0F82C33AAA800AD46E5 /* Assets.xcassets */,
 			);
@@ -295,6 +298,7 @@
 				3B832DAE2C3475BB0052DC77 /* SearchView.swift in Sources */,
 				3B53E0F22C33AAA700AD46E5 /* SceneDelegate.swift in Sources */,
 				3B59B4362C33FC9900677C96 /* Network+Task.swift in Sources */,
+				3B1BEDD92C358FCA002E2883 /* Protocols.swift in Sources */,
 				3B59B4342C33FC9000677C96 /* Network+Path.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
