@@ -30,10 +30,11 @@
 		3B59B4342C33FC9000677C96 /* Network+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B4332C33FC9000677C96 /* Network+Path.swift */; };
 		3B59B4362C33FC9900677C96 /* Network+Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B4352C33FC9900677C96 /* Network+Task.swift */; };
 		3B59B4382C33FF1E00677C96 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B4372C33FF1E00677C96 /* Extensions.swift */; };
-		3B59B43A2C34010600677C96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B4392C34010600677C96 /* Constants.swift */; };
 		3B59B43C2C3401D000677C96 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59B43B2C3401D000677C96 /* MainViewModel.swift */; };
 		3B832DAC2C344AE20052DC77 /* Network+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B832DAB2C344AE20052DC77 /* Network+Header.swift */; };
 		3B832DAE2C3475BB0052DC77 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B832DAD2C3475BB0052DC77 /* SearchView.swift */; };
+		3B90A77E2C363F2700D4FC3B /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90A77D2C363F2700D4FC3B /* TableView.swift */; };
+		3B90A7802C363F4800D4FC3B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90A77F2C363F4800D4FC3B /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,10 +56,11 @@
 		3B59B4332C33FC9000677C96 /* Network+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Path.swift"; sourceTree = "<group>"; };
 		3B59B4352C33FC9900677C96 /* Network+Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Task.swift"; sourceTree = "<group>"; };
 		3B59B4372C33FF1E00677C96 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		3B59B4392C34010600677C96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3B59B43B2C3401D000677C96 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		3B832DAB2C344AE20052DC77 /* Network+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Header.swift"; sourceTree = "<group>"; };
 		3B832DAD2C3475BB0052DC77 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		3B90A77D2C363F2700D4FC3B /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		3B90A77F2C363F4800D4FC3B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +149,6 @@
 		3B53E1072C33AB8500AD46E5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				3B59B4392C34010600677C96 /* Constants.swift */,
 				3B59B4372C33FF1E00677C96 /* Extensions.swift */,
 				3B1BEDD82C358FCA002E2883 /* Protocols.swift */,
 				3B0C7A6B2C33AC5000253D09 /* Secrets.xcconfig */,
@@ -192,6 +193,8 @@
 			children = (
 				3B53E0F32C33AAA700AD46E5 /* MainViewController.swift */,
 				3B832DAD2C3475BB0052DC77 /* SearchView.swift */,
+				3B90A77D2C363F2700D4FC3B /* TableView.swift */,
+				3B90A77F2C363F4800D4FC3B /* TableViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -287,15 +290,16 @@
 				3B59B42E2C33FC6E00677C96 /* NetworkProvider.swift in Sources */,
 				3B59B4322C33FC8700677C96 /* Network+Method.swift in Sources */,
 				3B59B4262C33FBD100677C96 /* UserInfo.swift in Sources */,
+				3B90A7802C363F4800D4FC3B /* TableViewCell.swift in Sources */,
 				3B59B4292C33FBFE00677C96 /* UserInfoSearchType.swift in Sources */,
 				3B59B4302C33FC7A00677C96 /* Network+BaseURL.swift in Sources */,
 				3B59B42C2C33FC4700677C96 /* Network.swift in Sources */,
 				3B53E0F42C33AAA700AD46E5 /* MainViewController.swift in Sources */,
 				3B59B43C2C3401D000677C96 /* MainViewModel.swift in Sources */,
-				3B59B43A2C34010600677C96 /* Constants.swift in Sources */,
 				3B59B4382C33FF1E00677C96 /* Extensions.swift in Sources */,
 				3B53E0F02C33AAA700AD46E5 /* AppDelegate.swift in Sources */,
 				3B832DAE2C3475BB0052DC77 /* SearchView.swift in Sources */,
+				3B90A77E2C363F2700D4FC3B /* TableView.swift in Sources */,
 				3B53E0F22C33AAA700AD46E5 /* SceneDelegate.swift in Sources */,
 				3B59B4362C33FC9900677C96 /* Network+Task.swift in Sources */,
 				3B1BEDD92C358FCA002E2883 /* Protocols.swift in Sources */,

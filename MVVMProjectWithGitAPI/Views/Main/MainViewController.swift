@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
+import Kingfisher
 import Then
 
 final class MainViewController: UIViewController {
@@ -22,6 +23,8 @@ final class MainViewController: UIViewController {
     private lazy var searchView = SearchView().then {
         $0.clearButton.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
     }
+    
+    private var tableView = TableView()
     
     // MARK: - Life Cycles
     override func viewDidLoad() {
@@ -38,10 +41,18 @@ final class MainViewController: UIViewController {
         view.backgroundColor = .white
         
         view.addSubview(searchView)
+        view.addSubview(tableView)
         
         searchView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(15)
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(15)
+            make.top.equalTo(searchView.snp.bottom).offset(10)
+            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-15)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
     
@@ -58,10 +69,13 @@ final class MainViewController: UIViewController {
                 self?.setClearButton(keyword: keyword)
             }).disposed(by: disposeBag)
         
-//        output.userInfos
-//            .subscribe { result in
-//                print(result)
-//            }.disposed(by: disposeBag)
+        output.userInfos
+            .asDriver(onErrorJustReturn: [])
+            .drive(tableView.tableView.rx.items(cellIdentifier: TableViewCell.id, cellType: TableViewCell.self)) { index, userInfo, cell in
+                cell.selectionStyle = .none
+                cell.setConfig(name: userInfo.login, urlString: userInfo.url)
+                cell.setImage(with: userInfo.avatarURL)
+            }.disposed(by: disposeBag)
     }
     
     private func bindView() {
@@ -91,3 +105,27 @@ final class MainViewController: UIViewController {
         searchView.clearButton.isHidden = true
     }
 }
+
+//// UITableView의 델리게이트 설정을 위한 extension
+//extension MainViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if searchView.textField.isFirstResponder {
+//            self.view.endEditing(true)
+//        } else {
+//            guard let url = gitAPIModel.userInfos?[indexPath.row].url else { return }
+//            goWebPage(url: url)
+//        }
+//    }
+//    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        // 검새 결과가 없을 때 동작하지 않음
+//        guard gitAPIModel.userInfos != nil else { return }
+//        let tableView = tableView.tableView
+//        
+//        // tableView를 거의 끝까지 내렸을 때 추가 검색
+//        if tableView.contentOffset.y > (tableView.contentSize.height - tableView.bounds.size.height - 120) {
+//            gitAPIModel.fetchUserData(userID: "Paging", type: .paging)
+//        }
+//    }
+//}
+

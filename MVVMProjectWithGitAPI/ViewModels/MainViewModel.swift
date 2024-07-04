@@ -15,7 +15,7 @@ final class MainViewModel: ViewModelType {
     private let networkProvider = NetworkProvider.shared
     private let disposeBag = DisposeBag()
     private let searchKeyword = BehaviorRelay<String>(value: "")
-    private let userInfos = BehaviorRelay<UserInfoList>(value: UserInfoList(userInfo: []))
+    private let userInfos = BehaviorRelay<[UserInfo]>(value: [])
     
     struct Input {
         let search: Observable<String>
@@ -24,7 +24,7 @@ final class MainViewModel: ViewModelType {
     
     struct Output {
         let search: Observable<String>
-        let userInfos: Observable<UserInfoList>
+        let userInfos: Observable<[UserInfo]>
     }
     
     // MARK: - Life Cycles
@@ -45,9 +45,10 @@ final class MainViewModel: ViewModelType {
                 
                 return self.networkProvider.fetchUserData(userID: keyword, page: page)
             })
-            .subscribe(onNext: {[weak self] userInfoList in
-                 print(userInfoList)
-                 self?.userInfos.accept(userInfoList)
+            .map { $0.userInfo }
+            .subscribe(onNext: {[weak self] userInfos in
+                 print(userInfos)
+                 self?.userInfos.accept(userInfos)
             }).disposed(by: disposeBag)
         
         return Output(search: searchKeyword.asObservable(), userInfos: userInfos.asObservable())
