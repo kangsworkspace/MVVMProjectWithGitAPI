@@ -55,11 +55,12 @@ final class NetworkProvider {
     /// - Parameter userID:(String) : 검색할 유저의 ID
     /// - Parameter page:(Int) : 페이징 처리를 위한 페이지 값
     /// - returns: 클로져로 종료 시점을 전달
-    func fetchUserData(userID: String, page: Int?) -> Single<UserInfoResults> {
+    func fetchUserData(userID: String, page: Int?) -> Single<UserInfoList> {
         provider.rx.request(.gitUserInfo(accessToken: accessToken, userID: userID, page: page))
+            .debug()
             .map { response in
                 let decoder = JSONDecoder()
-                let result = try decoder.decode(UserInfoResults.self, from: response.data)
+                let result = try decoder.decode(UserInfoList.self, from: response.data)
                 return result
             }
     }
