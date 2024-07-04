@@ -40,7 +40,7 @@ final class TableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         
-        setAutoLayout()
+        setUI()
     }
     
     override func prepareForReuse() {
@@ -52,11 +52,10 @@ final class TableViewCell: UITableViewCell {
     }
     
     // MARK: - Functions
-    func setAutoLayout() {
+    func setUI() {
         self.addSubview(userImageView)
         self.addSubview(nameLabel)
         self.addSubview(urlLabel)
-        
         
         userImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()

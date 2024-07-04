@@ -34,6 +34,7 @@
 		3B832DAE2C3475BB0052DC77 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B832DAD2C3475BB0052DC77 /* SearchView.swift */; };
 		3B90A77E2C363F2700D4FC3B /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90A77D2C363F2700D4FC3B /* TableView.swift */; };
 		3B90A7802C363F4800D4FC3B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90A77F2C363F4800D4FC3B /* TableViewCell.swift */; };
+		3B90A7822C368F6A00D4FC3B /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90A7812C368F6A00D4FC3B /* EmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		3B832DAD2C3475BB0052DC77 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		3B90A77D2C363F2700D4FC3B /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		3B90A77F2C363F4800D4FC3B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		3B90A7812C368F6A00D4FC3B /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				3B832DAD2C3475BB0052DC77 /* SearchView.swift */,
 				3B90A77D2C363F2700D4FC3B /* TableView.swift */,
 				3B90A77F2C363F4800D4FC3B /* TableViewCell.swift */,
+				3B90A7812C368F6A00D4FC3B /* EmptyView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				3B53E0F42C33AAA700AD46E5 /* MainViewController.swift in Sources */,
 				3B59B43C2C3401D000677C96 /* MainViewModel.swift in Sources */,
 				3B59B4382C33FF1E00677C96 /* Extensions.swift in Sources */,
+				3B90A7822C368F6A00D4FC3B /* EmptyView.swift in Sources */,
 				3B53E0F02C33AAA700AD46E5 /* AppDelegate.swift in Sources */,
 				3B832DAE2C3475BB0052DC77 /* SearchView.swift in Sources */,
 				3B90A77E2C363F2700D4FC3B /* TableView.swift in Sources */,
