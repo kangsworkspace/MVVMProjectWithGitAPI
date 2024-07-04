@@ -26,6 +26,10 @@ final class MainViewController: UIViewController {
     
     private var tableView = TableView()
     
+    private var emptyView = EmptyView().then {
+        $0.isHidden = true
+    }
+    
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,7 @@ final class MainViewController: UIViewController {
         
         view.addSubview(searchView)
         view.addSubview(tableView)
+        view.addSubview(emptyView)
         
         searchView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(15)
@@ -53,6 +58,11 @@ final class MainViewController: UIViewController {
             make.top.equalTo(searchView.snp.bottom).offset(10)
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-15)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
+        emptyView.snp.makeConstraints { make in
+            make.top.equalTo(searchView.snp.bottom).offset(40)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
@@ -76,6 +86,17 @@ final class MainViewController: UIViewController {
                 cell.setConfig(name: userInfo.login, urlString: userInfo.url)
                 cell.setImage(with: userInfo.avatarURL)
             }.disposed(by: disposeBag)
+        
+        output.userInfos
+            .asDriver(onErrorJustReturn: [])
+            .filter({[weak self] _ in
+                guard let keyword = self?.searchView.textField.text else { return false}
+                return !keyword.isEmpty
+            })
+            .drive(onNext: { [weak self] userInfos in
+                self?.checkEmpty(userInfo: userInfos)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func bindView() {
@@ -118,28 +139,13 @@ final class MainViewController: UIViewController {
         searchView.textField.text = ""
         searchView.clearButton.isHidden = true
     }
+    
+    private func checkEmpty(userInfo: [UserInfo]) {
+        if userInfo.isEmpty == true {
+            emptyView.isHidden = false
+        } else {
+            emptyView.isHidden = true
+        }
+    }
 }
-
-//// UITableView의 델리게이트 설정을 위한 extension
-//extension MainViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if searchView.textField.isFirstResponder {
-//            self.view.endEditing(true)
-//        } else {
-//            guard let url = gitAPIModel.userInfos?[indexPath.row].url else { return }
-//            goWebPage(url: url)
-//        }
-//    }
-//    
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        // 검새 결과가 없을 때 동작하지 않음
-//        guard gitAPIModel.userInfos != nil else { return }
-//        let tableView = tableView.tableView
-//        
-//        // tableView를 거의 끝까지 내렸을 때 추가 검색
-//        if tableView.contentOffset.y > (tableView.contentSize.height - tableView.bounds.size.height - 120) {
-//            gitAPIModel.fetchUserData(userID: "Paging", type: .paging)
-//        }
-//    }
-//}
 

@@ -42,13 +42,19 @@ final class MainViewModel: ViewModelType {
                 guard let self = self else { return Single.never() }
                 let keyword = self.searchKeyword.value
                 guard !keyword.isEmpty else { return Single.never() }
-                if page == 1 { self.userInfos.accept([]) }
-                return self.networkProvider.fetchUserData(userID: keyword, page: page)
+                
+                if page == 1 {
+                    return self.networkProvider.fetchUserData(userID: keyword, page: page)
+                } else {
+                    return self.networkProvider.fetchUserData(userID: keyword, page: page)
+                        .map { userInfoList in
+                            let currentInfos = self.userInfos.value
+                            return UserInfoList(userInfo: currentInfos + userInfoList.userInfo)
+                        }
+                }
             })
-            .map { $0.userInfo }
-            .subscribe(onNext: {[weak self] userInfos in
-                let value = self?.userInfos.value ?? []
-                self?.userInfos.accept(value + userInfos)
+            .subscribe(onNext: { [weak self] userInfoList in
+                self?.userInfos.accept(userInfoList.userInfo)
             }).disposed(by: disposeBag)
         
         return Output(search: searchKeyword.asObservable(), userInfos: userInfos.asObservable())
