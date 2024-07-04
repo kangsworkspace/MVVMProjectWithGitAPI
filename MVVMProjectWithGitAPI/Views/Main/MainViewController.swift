@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 import RxSwift
 import RxCocoa
@@ -18,6 +19,7 @@ final class MainViewController: UIViewController {
     private let viewModel = MainViewModel()
     private let disposeBag = DisposeBag()
     private let searchTrigger = BehaviorSubject<Int>(value: 1)
+    private let movePageTrigger = PublishSubject<Int>()
     
     // MARK: - Layouts
     private lazy var searchView = SearchView().then {
@@ -70,15 +72,17 @@ final class MainViewController: UIViewController {
         let keyword = searchView.textField.rx.text.orEmpty
             .asObservable()
         
-        let input = MainViewModel.Input(search: keyword, searchTrigger: searchTrigger)
+        let input = MainViewModel.Input(search: keyword, searchTrigger: searchTrigger, movePageTrigger: movePageTrigger)
         let output = viewModel.transform(input: input)
         
+        // 검색어 바인딩 -> ClearButton
         output.search
             .asDriver(onErrorJustReturn: "")
             .drive(onNext: {[weak self] keyword in
                 self?.setClearButton(keyword: keyword)
             }).disposed(by: disposeBag)
         
+        // 유저 데이터 바인딩 -> TableView
         output.userInfos
             .asDriver(onErrorJustReturn: [])
             .drive(tableView.tableView.rx.items(cellIdentifier: TableViewCell.id, cellType: TableViewCell.self)) { index, userInfo, cell in
@@ -87,6 +91,7 @@ final class MainViewController: UIViewController {
                 cell.setImage(with: userInfo.avatarURL)
             }.disposed(by: disposeBag)
         
+        // 유저 데이터 바인딩 -> EmptyView
         output.userInfos
             .asDriver(onErrorJustReturn: [])
             .filter({[weak self] _ in
@@ -97,6 +102,13 @@ final class MainViewController: UIViewController {
                 self?.checkEmpty(userInfo: userInfos)
             })
             .disposed(by: disposeBag)
+        
+        // 아이템 Selected 바인딩 -> goWebPage
+        output.userSelected
+            .asDriver(onErrorJustReturn: "")
+            .drive {[weak self] urlString in
+                self?.goWebPage(url: urlString)
+            }.disposed(by: disposeBag)
     }
     
     private func bindView() {
@@ -132,7 +144,7 @@ final class MainViewController: UIViewController {
                 if self.searchView.textField.isFirstResponder {
                     self.view.endEditing(true)
                 } else {
-                    print("페이지 이동 로직")
+                    movePageTrigger.onNext(indexPath.row)
                 }
             }).disposed(by: disposeBag)
     }
@@ -164,5 +176,14 @@ final class MainViewController: UIViewController {
     /// 다른 화면을 눌렀을 때 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    /// URL로 이동하는 함수
+    /// - Parameter url:(String) : 이동할 URL
+    private func goWebPage(url: String) {
+        guard !url.isEmpty, let url = URL(string: url) else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        safariViewController.modalPresentationStyle = .automatic
+        self.present(safariViewController, animated: true)
     }
 }

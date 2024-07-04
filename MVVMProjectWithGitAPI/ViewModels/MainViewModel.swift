@@ -20,11 +20,13 @@ final class MainViewModel: ViewModelType {
     struct Input {
         let search: Observable<String>
         let searchTrigger: Observable<Int>
+        let movePageTrigger: Observable<Int>
     }
     
     struct Output {
         let search: Observable<String>
         let userInfos: Observable<[UserInfo]>
+        let userSelected: Observable<String>
     }
     
     // MARK: - Life Cycles
@@ -57,6 +59,13 @@ final class MainViewModel: ViewModelType {
                 self?.userInfos.accept(userInfoList.userInfo)
             }).disposed(by: disposeBag)
         
-        return Output(search: searchKeyword.asObservable(), userInfos: userInfos.asObservable())
+        
+        let selectedURL = input.movePageTrigger
+            .map {[weak self] index in
+                guard let self = self else { return "" }
+                return self.userInfos.value[index].url
+            }
+        
+        return Output(search: searchKeyword.asObservable(), userInfos: userInfos.asObservable(), userSelected: selectedURL)
     }
 }
