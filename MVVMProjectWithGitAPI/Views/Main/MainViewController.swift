@@ -79,15 +79,29 @@ final class MainViewController: UIViewController {
     }
     
     private func bindView() {
+        // 검색 버튼을 눌렀을 때
         searchView.searchButton.rx.tap.bind {[weak self] in
             self?.searchTrigger.onNext(1)
         }.disposed(by: disposeBag)
         
+        // 키보드의 검색 버튼을 눌렀을 때
         searchView.textField.rx.controlEvent(.editingDidEndOnExit)
             .subscribe(onNext: { [weak self] in
                 self?.searchTrigger.onNext(1)
             }).disposed(by: disposeBag)
-        
+                
+        // 페이징 처리
+        tableView.tableView.rx.prefetchRows
+            .bind {[weak self] indexPath in
+                guard let self = self else { return }
+                guard let lastIndexPath = indexPath.last else { return }
+                let numberOfRows = self.tableView.tableView.numberOfRows(inSection: lastIndexPath.section)
+                guard let currentPage = try? self.searchTrigger.value() else { return }
+                
+                if lastIndexPath.row > numberOfRows - 2 {
+                    self.searchTrigger.onNext(currentPage + 1)
+                }
+            }.disposed(by: disposeBag)
     }
 
     /// clearButton 동작 로직(텍스트 변화 시)

@@ -36,19 +36,19 @@ final class MainViewModel: ViewModelType {
             .subscribe {[weak self] keyword in
                 self?.searchKeyword.accept(keyword)
             }.disposed(by: disposeBag)
-            
+        
         input.searchTrigger
             .flatMapLatest({[weak self] page -> Single<UserInfoList> in
                 guard let self = self else { return Single.never() }
                 let keyword = self.searchKeyword.value
                 guard !keyword.isEmpty else { return Single.never() }
-                
+                if page == 1 { self.userInfos.accept([]) }
                 return self.networkProvider.fetchUserData(userID: keyword, page: page)
             })
             .map { $0.userInfo }
             .subscribe(onNext: {[weak self] userInfos in
-                 print(userInfos)
-                 self?.userInfos.accept(userInfos)
+                let value = self?.userInfos.value ?? []
+                self?.userInfos.accept(value + userInfos)
             }).disposed(by: disposeBag)
         
         return Output(search: searchKeyword.asObservable(), userInfos: userInfos.asObservable())
