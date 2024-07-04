@@ -100,9 +100,10 @@ final class MainViewController: UIViewController {
     }
     
     private func bindView() {
-        // 검색 버튼을 눌렀을 때
+        // 검색 버튼(돋보기)을 눌렀을 때
         searchView.searchButton.rx.tap.bind {[weak self] in
             self?.searchTrigger.onNext(1)
+            self?.view.endEditing(true)
         }.disposed(by: disposeBag)
         
         // 키보드의 검색 버튼을 눌렀을 때
@@ -123,6 +124,17 @@ final class MainViewController: UIViewController {
                     self.searchTrigger.onNext(currentPage + 1)
                 }
             }.disposed(by: disposeBag)
+        
+        // 테이블 뷰 눌렀을 때 동작
+        tableView.tableView.rx.itemSelected
+            .subscribe(onNext: {[weak self] indexPath in
+                guard let self = self else { return }
+                if self.searchView.textField.isFirstResponder {
+                    self.view.endEditing(true)
+                } else {
+                    print("페이지 이동 로직")
+                }
+            }).disposed(by: disposeBag)
     }
 
     /// clearButton 동작 로직(텍스트 변화 시)
@@ -140,6 +152,7 @@ final class MainViewController: UIViewController {
         searchView.clearButton.isHidden = true
     }
     
+    /// 데이터가 없을 때 EmptyView 보여주기
     private func checkEmpty(userInfo: [UserInfo]) {
         if userInfo.isEmpty == true {
             emptyView.isHidden = false
@@ -147,5 +160,9 @@ final class MainViewController: UIViewController {
             emptyView.isHidden = true
         }
     }
+    
+    /// 다른 화면을 눌렀을 때 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
-
