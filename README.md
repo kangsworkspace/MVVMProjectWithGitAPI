@@ -146,8 +146,8 @@ git clone https://github.com/kangsworkspace/MVVMProjectWithGitAPI
   <img src="./img/Moving.gif" width="30%"/>
 
 ## Library
-- [RxSwift]
-- [SnapKit]
-- [KingFisher]
-- [Then](https://github.com/devxoul/Then)
-- [Moya](https://github.com/Moya/Moya)
+- [RxSwift](https://github.com/ReactiveX/RxSwift): 비동기 처리/데이터 바인딩에 사용  
+- [SnapKit](https://github.com/SnapKit/SnapKit): UI 레이아웃 잡는데 사용  
+- [KingFisher](https://github.com/onevcat/Kingfisher): 이미지로 로드, 이미지 캐싱, 인디케이터에 사용   
+- [Then](https://github.com/devxoul/Then): 코드 단축을 위해 사용  
+- [Moya/RxMoya](https://github.com/Moya/Moya): 네트워킹에 사용  
