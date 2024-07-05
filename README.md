@@ -102,7 +102,6 @@ input.searchTrigger
   - 에러를 디버깅하며 세세한 에러처리가 많아졌습니다.  
     만약 규모가 큰 프로젝트였다면 추후 유지보수가 어려워 질 것 같습니다.  
     더 큰 단위에서 구조적으로 좋은 방법이 있나 고민을 하고 경험을 더 쌓아야 할 것 같습니다.  
-    ( ex) 검색어(Keyword) 정보를 뷰 모델에서 Subject로 처리할 것인지 Input의 파라미터로 처리할 것인지 )
 
 ### 작업 Flow - TBD(Trunk Based Develop)
   - 단일한 브랜치(Main or Trunk)에 수시로 병합(merge)
