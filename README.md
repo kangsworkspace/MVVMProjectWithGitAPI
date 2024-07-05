@@ -26,6 +26,7 @@
 - `View`에서 **데이터를 처리**하는 로직을 최소화하였습니다.  
    (유저의 `Input`은 `ViewModel`로 넘기기)  
    (`ViewModel`의 `Output`은 추가적인 데이터 처리 없이 `View`에서 사용하기)  
+  [MVVM 패턴에 대한 내용을 정리한 블로그](https://dev-kang.tistory.com/41)    
   
 ![MVVM 패턴 정리](https://github.com/kangsworkspace/MVVMProjectWithGitAPI/assets/141600830/6f3ef376-adcc-4cf5-bb0b-eb635a4e6528)  
 
